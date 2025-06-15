@@ -1,4 +1,4 @@
-const apiBase = 'http://localhost:5000'; // Change this to your backend URL
+const apiBase = 'http://localhost:5000'; // Backend base URL
 
 // Login
 const loginForm = document.getElementById('loginForm');
@@ -16,7 +16,7 @@ if (loginForm) {
     }
 
     try {
-      const res = await fetch(`${apiBase}/auth/login`, {
+      const res = await fetch(`${apiBase}/api/auth/login`, { // ✅ fixed
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -50,7 +50,7 @@ if (registerForm) {
     }
 
     try {
-      const res = await fetch(`${apiBase}/auth/register`, {
+      const res = await fetch(`${apiBase}/api/auth/register`, { // ✅ fixed
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),

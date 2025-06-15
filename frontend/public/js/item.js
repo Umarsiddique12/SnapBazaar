@@ -6,7 +6,9 @@ async function fetchItems() {
     const res = await fetch('http://localhost:5000/api/items', {
       headers: { Authorization: `Bearer ${token}` }
     });
+
     const items = await res.json();
+
     if (!res.ok) throw new Error(items.msg || 'Failed to fetch items');
 
     renderItems(items);
@@ -21,7 +23,10 @@ function renderItems(items) {
     return;
   }
 
+  // Clear existing content
   itemsList.innerHTML = '';
+
+  // Loop through each item and create HTML card
   items.forEach(item => {
     const card = document.createElement('div');
     card.className = 'item-card';
@@ -30,8 +35,9 @@ function renderItems(items) {
       <img src="${item.image || 'images/default-item.png'}" alt="${item.title}" />
       <div class="item-info">
         <h3>${item.title}</h3>
-        <p class="description">${item.description}</p>
+        <p class="description">${item.description || 'No description provided.'}</p>
         <p class="price">₹${item.price}</p>
+        <p class="posted-by">Posted by: ${item.user?.name || 'Unknown'}</p>
       </div>
     `;
 
@@ -39,6 +45,7 @@ function renderItems(items) {
   });
 }
 
+// Run fetch on page load
 if (itemsList) {
   fetchItems();
 }

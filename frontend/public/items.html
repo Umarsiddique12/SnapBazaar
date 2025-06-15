@@ -3,9 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Snapbazar - Items</title>
+  <title>Snapbazar - All Items</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    /* Optional quick styling in case it's missing */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .item-card {
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+    }
+    .item-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .item-info h3 {
+      margin: 10px 0 5px;
+    }
+    .price {
+      font-weight: bold;
+      color: green;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -23,12 +52,13 @@
 
   <main class="container">
     <h1>All Items</h1>
+    <h1>hell</h1>
     <div id="itemsList" class="items-grid">
-      <!-- Items will be dynamically injected here -->
+      <!-- Items will be dynamically injected here by JS -->
     </div>
   </main>
 
-  <script src="js/items.js"></script>
+  <script src="js/item.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
