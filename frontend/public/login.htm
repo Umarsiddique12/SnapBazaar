@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snapbazar - Login</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <main class="auth-container">
+    <h2>Login to Snapbazar</h2>
+    <form id="loginForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email" />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required placeholder="Enter your password" />
+
+      <button type="submit" class="btn-primary">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+    <p class="error-msg" id="loginError"></p>
+  </main>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/* You can add mobile-specific overrides here, for now just simple base */
+
+body {
+  font-size: 16px;
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+}
