@@ -17,3 +17,12 @@ if (protectedPages.includes(currentPage)) {
     window.location.href = 'login.html';
   }
 }
+
+
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  navToggle.classList.toggle('open');
+});
