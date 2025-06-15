@@ -2,44 +2,42 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
 const User = require('../models/User');
+require('dotenv').config();
 
-dotenv.config();
-
-// Register new user
+// Register
 router.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
     let user = await User.findOne({ email });
-    if (user) return res.status(400).json({ message: 'User already exists' });
+    if (user) return res.status(400).json({ msg: 'User already exists' });
 
     user = new User({ name, email, password });
     await user.save();
 
-    res.status(201).json({ message: 'User registered successfully' });
+    res.status(201).json({ msg: 'User registered successfully' });
   } catch (err) {
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ msg: 'Server error' });
   }
 });
 
-// Login user using passport local strategy
+// Login
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', { session: false }, (err, user, info) => {
     if (err) return next(err);
+    if (!user) return res.status(400).json({ msg: info.message });
 
-    if (!user) {
-      return res.status(400).json({ message: info.message || 'Login failed' });
-    }
+    const payload = { id: user.id };
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '7d' });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: '7d',
-    });
-
-    return res.json({
+    res.json({
       token,
-      user: { id: user._id, name: user.name, email: user.email },
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email
+      }
     });
   })(req, res, next);
 });

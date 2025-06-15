@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
-const itemSchema = new mongoose.Schema(
-  {
-    title: { type: String, required: true, trim: true },
-    description: { type: String, required: true, trim: true },
-    price: { type: Number, required: true },
-    photos: [String], // array of image paths
-    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  },
-  { timestamps: true }
-);
+const ItemSchema = new mongoose.Schema({
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  title: { type: String, required: true },
+  description: { type: String },
+  price: { type: Number, required: true },
+  image: { type: String },
+  createdAt: { type: Date, default: Date.now }
+});
 
-module.exports = mongoose.model('Item', itemSchema);
+module.exports = mongoose.model('Item', ItemSchema);
