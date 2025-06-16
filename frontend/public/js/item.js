@@ -1,51 +1,51 @@
-const itemsList = document.getElementById('itemsList');
+document.addEventListener('DOMContentLoaded', () => {
+  fetchItems();
+});
 
 async function fetchItems() {
-  const token = localStorage.getItem('token');
   try {
-    const res = await fetch('http://localhost:5000/api/items', {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    const response = await fetch('/api/items');
+    const data = await response.json();
 
-    const items = await res.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to load items');
 
-    if (!res.ok) throw new Error(items.msg || 'Failed to fetch items');
-
-    renderItems(items);
-  } catch (err) {
-    itemsList.innerHTML = `<p class="error-msg">${err.message}</p>`;
+    renderItems(data);
+  } catch (error) {
+    console.error('Error fetching items:', error.message);
+    document.getElementById('itemsList').innerHTML = '<p class="error-msg">Failed to load items.</p>';
   }
 }
 
 function renderItems(items) {
+  const container = document.getElementById('itemsList');
+  container.innerHTML = '';
+
   if (items.length === 0) {
-    itemsList.innerHTML = '<p>No items available.</p>';
+    container.innerHTML = '<p>No items found.</p>';
     return;
   }
 
-  // Clear existing content
-  itemsList.innerHTML = '';
-
-  // Loop through each item and create HTML card
   items.forEach(item => {
     const card = document.createElement('div');
     card.className = 'item-card';
 
+    const whatsappLink = item.whatsappNumber
+      ? `<a href="https://wa.me/${item.whatsappNumber}" target="_blank" class="whatsapp-link">
+          <i class="fab fa-whatsapp"></i> Chat with Seller
+         </a>`
+      : '<span class="no-contact">No contact info</span>';
+
     card.innerHTML = `
-      <img src="${item.image || 'images/default-item.png'}" alt="${item.title}" />
-      <div class="item-info">
+      <img src="${item.image || 'default.jpg'}" alt="${item.title}" class="item-image" />
+      <div class="item-details">
         <h3>${item.title}</h3>
-        <p class="description">${item.description || 'No description provided.'}</p>
-        <p class="price">₹${item.price}</p>
-        <p class="posted-by">Posted by: ${item.user?.name || 'Unknown'}</p>
+        <p>${item.description}</p>
+        <p><strong>Price:</strong> ₹${item.price}</p>
+        <p><strong>Seller:</strong> ${item.sellerName || 'Unknown'}</p>
+        ${whatsappLink}
       </div>
     `;
 
-    itemsList.appendChild(card);
+    container.appendChild(card);
   });
-}
-
-// Run fetch on page load
-if (itemsList) {
-  fetchItems();
 }
