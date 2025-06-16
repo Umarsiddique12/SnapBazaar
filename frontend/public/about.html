@@ -183,50 +183,123 @@ body {
     display: block;
   }
 }
-.site-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(135deg, #2575FC, #6A11CB);
+
+/* Hero Section */
+.hero-about {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: white;
-  padding: 20px 30px 10px;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 100;
 }
 
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.4);
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+/* Developer Section */
+.developer-section {
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.developer-profile {
+  max-width: 600px;
   margin: auto;
 }
 
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.developer-profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.footer-logo img {
-  width: 40px;
-  height: 40px;
+.developer-profile h3 {
+  font-size: 1.8rem;
+  margin: 0.5rem 0;
 }
 
-.footer-contact p {
-  margin: 4px 0;
-  font-size: 0.9rem;
+.developer-profile p {
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-.footer-bottom {
-  text-align: center;
-  font-size: 0.8rem;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 10px;
+.social-links a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.6rem;
+  transition: color 0.3s;
 }
+
+.social-links a:hover {
+  color: #ffd700;
+}
+/* About Details Section */
+.about-details {
+  background: #ffffff;
+  padding: 4rem 2rem;
+  color: #333;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2575fc;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.about-content ul,
+.about-content ol {
+  margin-left: 2rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.about-content li {
+  margin-bottom: 0.75rem;
+}
+
 </style>
 
 <body>
@@ -241,6 +314,7 @@ body {
 
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link active">Home</a></li>
+         <li><a href="items.html" class="nav-link">Item</a></li>
         <li><a href="add-item.html" class="nav-link">Add Item</a></li>
         <li><a href="my-items.html" class="nav-link">My Items</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
@@ -250,32 +324,72 @@ body {
   </nav>
 </header>
 
-  <main class="container">
-    <h1>About Snapbazar</h1>
-    <p>
-      Snapbazar is your friendly campus marketplace for buying and selling items easily.
-      We believe in connecting students and staff in a simple, transparent way.
-    </p>
-    <p>Created with ❤️ by Mohammad Umar.</p>
-  </main>
-<footer class="site-footer">
-  <div class="footer-content">
-    <div class="footer-logo">
-      <img src="images/logo.png" alt="Snapbazar Logo" />
-      <h2>Snapbazar</h2>
-    </div>
+<main>
 
-    <div class="footer-contact">
-      <p><strong>Email:</strong> support@snapbazar.com</p>
-      <p><strong>Phone:</strong> +91 98765 43210</p>
-      <p><strong>Location:</strong> New Delhi, India</p>
+  <!-- Hero Section with Background Video -->
+  <section class="hero-about">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="videos/about-bg.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="hero-content">
+      <h1>Welcome to Snapbazar</h1>
+      <p>Your campus marketplace built for smart, simple, and safe student-to-student exchange.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="footer-bottom">
-    <p>&copy; 2025 Snapbazar. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- Detailed About Snapbazar -->
+  <section class="about-details">
+    <div class="about-content">
+      <h2>What is Snapbazar?</h2>
+      <p>
+        Snapbazar is a student-first marketplace platform built to help university and college students buy and sell items directly within their campus. Whether it's old books, tech gadgets, cycle, hostel essentials, or even handmade products — Snapbazar is the place to connect with your campus community.
+      </p>
+
+      <h2>Why Snapbazar?</h2>
+      <ul>
+        <li>🔒 <strong>Safe</strong> – Only students/staff with verified accounts can use the platform.</li>
+        <li>⚡ <strong>Fast</strong> – No middlemen, no delivery stress. Connect directly.</li>
+        <li>💬 <strong>Local</strong> – Made for your campus. Built for your lifestyle.</li>
+        <li>📱 <strong>Mobile-friendly</strong> – Use it from anywhere, anytime.</li>
+      </ul>
+
+      <h2>How It Works?</h2>
+      <ol>
+        <li><strong>Login/Register:</strong> Secure authentication using your email.</li>
+        <li><strong>Post Items:</strong> Add details, images, and price – it’s quick!</li>
+        <li><strong>Browse Listings:</strong> Explore what others are offering.</li>
+        <li><strong>Connect:</strong> Use built-in features to chat or exchange info.</li>
+        <li><strong>Meet & Exchange:</strong> Finalize deal safely on campus.</li>
+      </ol>
+
+      <h2>Our Vision</h2>
+      <p>
+        Snapbazar aims to become the go-to student marketplace across campuses in India. We believe in sustainable sharing, affordability, and building communities through technology. What started as a small project is now a mission to simplify student life — one trade at a time.
+      </p>
+    </div>
+  </section>
+
+  <!-- Developer Section -->
+  <section class="developer-section">
+    <h2>Meet the Developer</h2>
+    <div class="developer-profile">
+      <img src="images/umar.jpg" alt="Mohammad Umar" />
+      <h3>Mohammad Umar</h3>
+      <p>
+        I'm a B.Tech CSE student at Jamia Hamdard and a passionate full-stack developer. I created Snapbazar as a real-world project to solve a real student problem — making it easier for us to exchange, trade, and save money on essentials.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/Umarsiddique12" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/your-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
 
 
 

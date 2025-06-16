@@ -6,6 +6,97 @@
   <title>Snapbazar - Login</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #6A11CB, #2575FC);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .auth-container {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .auth-container h2 {
+      margin-bottom: 25px;
+      color: #333;
+      font-size: 26px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      text-align: left;
+      font-weight: 500;
+      color: #555;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    input:focus {
+      border-color: #2575FC;
+      box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.2);
+    }
+
+    .btn-primary {
+      padding: 12px;
+      background: #2575FC;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #1a5ed9;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    a {
+      color: #2575FC;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .error-msg {
+      margin-top: 10px;
+      color: red;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
   <main class="auth-container">

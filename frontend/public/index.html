@@ -180,49 +180,214 @@ body {
     display: block;
   }
 }
-.site-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(135deg, #2575FC, #6A11CB);
-  color: white;
-  padding: 20px 30px 10px;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 100;
+
+/* HERO Section */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.footer-content {
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.video-overlay {
+  position: relative;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.video-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-btn {
+  background: #ffd700;
+  color: #000;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #ffcc00;
+  transform: scale(1.05);
+}
+
+/* Info Section */
+.info-section {
+  padding: 4rem 2rem;
+  background: #ffffff;
+}
+
+.info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   max-width: 1200px;
   margin: auto;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.info-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  width: 500px;
 }
 
-.footer-logo img {
-  width: 40px;
-  height: 40px;
+.info-text {
+  max-width: 600px;
 }
 
-.footer-contact p {
-  margin: 4px 0;
-  font-size: 0.9rem;
+.info-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.footer-bottom {
+.info-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.info-btn {
+  background: #2575fc;
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.info-btn:hover {
+  background: #6a11cb;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .info-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-image img {
+    width: 100%;
+  }
+}
+/* Category Section */
+.category-section {
+  padding: 4rem 2rem;
+  background: #f1f4f8;
   text-align: center;
-  font-size: 0.8rem;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 10px;
+}
+
+.category-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  width: 120px;
+}
+
+.category-card img {
+  width: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Testimonials */
+.testimonials {
+  background: #ffffff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.testimonial {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  max-width: 300px;
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 
@@ -240,6 +405,7 @@ body {
 
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link active">Home</a></li>
+         <li><a href="items.html" class="nav-link">Item</a></li>
         <li><a href="add-item.html" class="nav-link">Add Item</a></li>
         <li><a href="my-items.html" class="nav-link">My Items</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
@@ -248,29 +414,89 @@ body {
     </div>
   </nav>
 </header>
+<main>
 
-  <main>
-    <p>This is a campus marketplace for students to buy and sell used items.</p>
-
-  </main>
-  <footer class="site-footer">
-  <div class="footer-content">
-    <div class="footer-logo">
-      <img src="images/logo.png" alt="Snapbazar Logo" />
-      <h2>Snapbazar</h2>
+  <!-- Hero Section with Background Video -->
+  <section class="hero-section">
+    <video autoplay muted loop class="bg-video">
+      <source src="videos/market.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="video-overlay">
+      <h1>Explore Campus Deals</h1>
+      <a href="items.html" class="hero-btn">View Items</a>
     </div>
+  </section>
 
-    <div class="footer-contact">
-      <p><strong>Email:</strong> support@snapbazar.com</p>
-      <p><strong>Phone:</strong> +91 98765 43210</p>
-      <p><strong>Location:</strong> New Delhi, India</p>
+  <!-- Category Icons Section -->
+  <section class="category-section">
+    <h2>Popular Categories</h2>
+    <div class="categories">
+      <div class="category-card">
+        <img src="images/book-icon.png" alt="Books" />
+        <p>Books</p>
+      </div>
+      <div class="category-card">
+        <img src="images/electronics-icon.png" alt="Electronics" />
+        <p>Electronics</p>
+      </div>
+      <div class="category-card">
+        <img src="images/clothing-icon.png" alt="Clothing" />
+        <p>Clothing</p>
+      </div>
+      <div class="category-card">
+        <img src="images/furniture-icon.png" alt="Furniture" />
+        <p>Furniture</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="footer-bottom">
-    <p>&copy; 2025 Snapbazar. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- Info Section -->
+  <section class="info-section">
+    <div class="info-container">
+      <div class="info-image">
+        <img src="images/shop.png" alt="Buy and Sell Items" />
+      </div>
+      <div class="info-text">
+        <h2>Buy & Sell Effortlessly</h2>
+        <p>Snapbazar is your trusted campus marketplace. Whether you're selling your old books or looking for a great deal on a second-hand bicycle, we've got you covered!</p>
+        <a href="add-item.html" class="info-btn">Sell Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Students Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial">
+        <p>"I sold my old laptop on Snapbazar within 2 days! Amazing experience."</p>
+        <h4>- Ayesha, BCA Student</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Bought all my semester books at half the price. Love this platform!"</p>
+        <h4>- Rohan, MBA Student</h4>
+      </div>
+      <div class="testimonial">
+        <p>"A very easy-to-use site for students. Highly recommended."</p>
+        <h4>- Simran, Engineering Student</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call To Action -->
+  <section class="cta-section">
+    <h2>Ready to Join the Marketplace?</h2>
+    <p>Sign up or log in to start exploring or selling your items now.</p>
+    <div class="cta-buttons">
+      <a href="items.html" class="hero-btn">Browse Items</a>
+      <a href="add-item.html" class="info-btn">Start Selling</a>
+    </div>
+  </section>
+
+</main>
+
+
   <script src="js/main.js">
 
   </script>
